@@ -4,7 +4,7 @@ import sqlite3
 root = Tk()
 root.title('Databases')
 root.iconbitmap('quakechamps.ico')
-root.geometry("350x550")
+root.geometry("350x560")
 
 # Databases
 # Create a database or connect to one
