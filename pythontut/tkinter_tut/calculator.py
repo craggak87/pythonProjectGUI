@@ -3,28 +3,29 @@
 from tkinter import *
 
 # Start of the main loop
-
 root = Tk()
 
 # Window title
-
 root.title("Simple calculator")
 
 # Entry field
 entry = Entry(root, width=45, borderwidth=5)
 entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
-# Button function
+# Button functions
 
+# Function that implements writing numbers in the entry box
 def button_click(number):
 	#entry.delete(0, END)
 	current = entry.get()
 	entry.delete(0, END)
 	entry.insert(0, str(current) + str(number))
 
+# Function for the button CLEAR
 def button_clear():
 	entry.delete(0, END)
 
+# Function for the ADD button
 def button_add():
 	first_number = entry.get()
 	global f_num
@@ -33,6 +34,7 @@ def button_add():
 	f_num = int(first_number)
 	entry.delete(0, END)
 
+# Function for the EQUALS button
 def button_eq():
 	second_number = entry.get()
 	entry.delete(0, END)
@@ -49,6 +51,7 @@ def button_eq():
 	if math == "div":
 		entry.insert(0, f_num / int(second_number))
 
+# Function for the SUBSTRACT button
 def button_sub():
 	first_number = entry.get()
 	global f_num
@@ -57,6 +60,7 @@ def button_sub():
 	f_num = int(first_number)
 	entry.delete(0, END)
 
+# Function for the MULTIPLY button
 def button_mul():
 	first_number = entry.get()
 	global f_num
@@ -65,6 +69,7 @@ def button_mul():
 	f_num = int(first_number)
 	entry.delete(0, END)
 
+# Function for the DIVIDE button
 def button_div():
 	first_number = entry.get()
 	global f_num
@@ -74,7 +79,6 @@ def button_div():
 	entry.delete(0, END)
 
 # Buttons
-
 button_add = Button(root, text="+", padx=40, pady=40, command=button_add)
 button_0 = Button(root, text="0", padx=40, pady=40, command=lambda: button_click(0))
 button_1 = Button(root, text="1", padx=40, pady=40, command=lambda: button_click(1))
@@ -92,6 +96,7 @@ button_sub = Button(root, text="-", padx=40, pady=40, command=button_sub)
 button_mul = Button(root, text="*", padx=40, pady=40, command=button_mul)
 button_div = Button(root, text="/", padx=40, pady=40, command=button_div)
 
+# Button placing on the root window
 button_add.grid(row=1, column=3)
 button_0.grid(row=4, column=1)
 button_clr.grid(row=4, column=2)
@@ -113,9 +118,6 @@ button_mul.grid(row=3, column=3)
 button_div.grid(row=4, column=3)
 
 button_eq.grid(row=4, column=0)
-
-
-
 
 #End of the main loop
 root.mainloop()
